@@ -2,6 +2,16 @@ provider "aws" {
   region = "eu-west-2"
 }
 
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+
 module "my_vpc" {
   source                    = "../module/vpc"
   vpc_cidr_block            = var.vpc_cidr_block

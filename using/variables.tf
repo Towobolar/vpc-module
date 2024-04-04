@@ -10,30 +10,50 @@ variable "tag_vpc_name" {
 
 variable "public_subnet_cidr_block" {
   description = "public subnet cidr block"
-  type = string
+  type        = string
 }
 
 variable "tag_public_subnet_name" {
   description = "tag for public subnet"
-  type = string
+  type        = string
 }
 
 variable "az_public_subnet" {
   description = "availability zone for public subnet"
-  type = string
+  type        = string
 }
 
 variable "private_subnet_cidr_block" {
   description = "private subnet cidr block"
-  type = string
+  type        = string
 }
 
 variable "tag_private_subnet_name" {
   description = "tag for private subnet"
-  type = string
+  type        = string
 }
 
 variable "az_private_subnet" {
   description = "availability zone for private subnet"
-  type = string
+  type        = string
+}
+
+variable "tag_internet_gateway" {
+  description = "internet gateway"
+  type        = string
+}
+
+variable "tag_public_route_table" {
+  description = "public route table tag"
+  type        = string
+}
+
+variable "private_rt_cidr_block" {
+  description = "private route table"
+  type        = string
+}
+
+variable "tag_private_route_table" {
+  description = "private route table tag"
+  type        = string
 }

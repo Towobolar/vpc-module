@@ -14,6 +14,4 @@ module "my_vpc" {
   az_private_subnet         = var.az_private_subnet
   tag_internet_gateway      = var.tag_internet_gateway
   tag_public_route_table    = var.tag_public_route_table
-  private_rt_cidr_block     = var.private_rt_cidr_block
-  tag_private_route_table   = var.tag_private_route_table
 }

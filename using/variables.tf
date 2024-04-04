@@ -47,13 +47,3 @@ variable "tag_public_route_table" {
   description = "public route table tag"
   type        = string
 }
-
-variable "private_rt_cidr_block" {
-  description = "private route table"
-  type        = string
-}
-
-variable "tag_private_route_table" {
-  description = "private route table tag"
-  type        = string
-}

@@ -30,11 +30,11 @@ module "vpc" {
 module "ec2" {
   source                           = "../module/ec2"
   ami_public_web_server            = var.ami_public_web_server
-  instance_type_public_web_server  = var.ami_public_web_server
-  tag_public_web_server            = var.ami_public_web_server
+  instance_type_public_web_server  = var.instance_type_public_web_server
+  tag_public_web_server            = var.tag_public_web_server
   ami_private_app_server           = var.ami_private_app_server
-  instance_type_private_app_server = var.ami_private_app_server
+  instance_type_private_app_server = var.instance_type_private_app_server
   tag_private_app_server           = var.tag_private_app_server
-  subnet_id_public_web_server      = data.aws_subnet.public_subnet.id
-  subnet_id_private_app_server     = data.aws_subnet.private_app_server.id
+  subnet_id_public_web_server      = module.vpc.public_subnet_id
+  subnet_id_private_app_server     = module.vpc.private_subnet_id
 }

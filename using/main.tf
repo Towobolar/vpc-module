@@ -12,16 +12,29 @@ terraform {
 }
 
 
-module "my_vpc" {
+module "vpc" {
   source                    = "../module/vpc"
   vpc_cidr_block            = var.vpc_cidr_block
   tag_vpc_name              = var.tag_vpc_name
   public_subnet_cidr_block  = var.public_subnet_cidr_block
   tag_public_subnet_name    = var.tag_public_subnet_name
-  az_public_subnet          = var.az_public_subnet
   private_subnet_cidr_block = var.private_subnet_cidr_block
   tag_private_subnet_name   = var.tag_private_subnet_name
-  az_private_subnet         = var.az_private_subnet
   tag_internet_gateway      = var.tag_internet_gateway
   tag_public_route_table    = var.tag_public_route_table
+  sg_name                   = var.sg_name
+
+
+}
+
+module "ec2" {
+  source                           = "../module/ec2"
+  ami_public_web_server            = var.ami_public_web_server
+  instance_type_public_web_server  = var.ami_public_web_server
+  tag_public_web_server            = var.ami_public_web_server
+  ami_private_app_server           = var.ami_private_app_server
+  instance_type_private_app_server = var.ami_private_app_server
+  tag_private_app_server           = var.tag_private_app_server
+  subnet_id_public_web_server      = data.aws_subnet.public_subnet.id
+  subnet_id_private_app_server     = data.aws_subnet.private_app_server.id
 }

@@ -13,7 +13,7 @@ terraform {
 
 
 module "vpc" {
-  source                    = "./module/vpc"
+  source                    = "../modules/vpc"
   vpc_cidr_block            = var.vpc_cidr_block
   tag_vpc_name              = var.tag_vpc_name
   public_subnet_cidr_block  = var.public_subnet_cidr_block
@@ -23,10 +23,12 @@ module "vpc" {
   tag_internet_gateway      = var.tag_internet_gateway
   tag_public_route_table    = var.tag_public_route_table
   sg_name                   = var.sg_name
+  az_private_subnet         = var.az_private_subnet
+  az_public_subnet          = var.az_public_subnet
 }
 
 module "ec2" {
-  source                           = "../module/ec2"
+  source                           = "../modules/ec2"
   ami_public_web_server            = var.ami_public_web_server
   instance_type_public_web_server  = var.instance_type_public_web_server
   tag_public_web_server            = var.tag_public_web_server

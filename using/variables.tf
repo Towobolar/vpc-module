@@ -47,3 +47,12 @@ variable "tag_public_route_table" {
   description = "public route table tag"
   type        = string
 }
+
+variable "sg_name" {
+  description = "name of sg"
+  type        = string
+}
+
+variable "vpc_id" {
+  description = "value"
+}

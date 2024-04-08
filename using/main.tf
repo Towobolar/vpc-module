@@ -25,3 +25,11 @@ module "my_vpc" {
   tag_internet_gateway      = var.tag_internet_gateway
   tag_public_route_table    = var.tag_public_route_table
 }
+
+# create security group module #
+
+module "ec2_sg" {
+  source  = "../module/security-group"
+  sg_name = var.sg_name
+  vpc_id  = module.my_vpc.vpc_id
+}
